@@ -1,0 +1,8 @@
+/env
+.env
+/src/*.sh
+/src/start.sh
+/srs/bin/logs/*
+/srs/bin/__pycache__/*
+/srs/bin/classes/__pycache__/*
+/srs/bin/functions/__pycache__/*
