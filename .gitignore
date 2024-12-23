@@ -2,7 +2,7 @@
 .env
 /src/*.sh
 /src/start.sh
-/srs/bin/logs/*
-/srs/bin/__pycache__/*
-/srs/bin/classes/__pycache__/*
-/srs/bin/functions/__pycache__/*
+/src/bin/logs/*
+/src/bin/__pycache__/*
+/src/bin/classes/__pycache__/*
+/src/bin/functions/__pycache__/*
