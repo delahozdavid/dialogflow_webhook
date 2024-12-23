@@ -7,6 +7,7 @@ from difflib import SequenceMatcher
 from data.redis_database import get_session_data, set_session_data
 from fastapi import BackgroundTasks
 import random
+import re
 
 async def mainSociosSterenFunc(queryResult: Dict[str, Any], session: str, background_tasks: BackgroundTasks):
     intent_name = queryResult.get('intent', {}).get('displayName', '')
@@ -20,6 +21,14 @@ async def mainSociosSterenFunc(queryResult: Dict[str, Any], session: str, backgr
 #Async function
 async def handler_Default_Welcome(queryResult: Dict[str, Any], session: str):
     sessionId = session.split('/')[-1]
+    if not re.match(r'^\d+$', sessionId):
+        return {
+            "followupEventInput": {
+                "name": "menu_inicial",
+                "parameters": {},
+                "languageCode": "en-US"
+            }
+        }
     try:
         connection = await get_db_connection()
         result = await connection.fetchrow("""
